@@ -4,10 +4,11 @@ include 'connect.php';
 include 'header.php';
  
 echo '<h2>Create a topic</h2>';
+//check if user is logged in
 if($_SESSION['signed_in'] == false)
 {
-    //the user is not signed in
-    echo 'Sorry, you have to be <a href="/forum/signin.php">signed in</a> to create a topic.';
+    //ask the user to sign-in
+    echo 'Please Login to use this feature, ' . '<a href="signin.php">Sign in</a>'; 
 }
 else
 {
