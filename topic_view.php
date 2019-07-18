@@ -1,41 +1,41 @@
 <?php
-//category.php
+//topic_view.php
 include 'connect.php';
 include 'header.php';
  
-//first select the category based on $_GET['cat_id'] 
+//first select the category based on $_GET['cat_id'] -copied from category.php,,,
 // WHERE
            // cat_id = " . mysqli_real_escape_string($conn, $_GET['id'])
 $sql = "SELECT
-            cat_id,
-            cat_name,
-            cat_description
-        FROM
-            categories
-        where
-            cat_id = 1";   
+topic_id,
+topic_subject
+FROM
+topics
+WHERE
+topics.topic_id = 1 ";
+// . mysqli_real_escape_string($conn,$_GET['id']);   
  
 $result = mysqli_query($conn, $sql);
  
 if(!$result)
 {
-    echo 'The category could not be displayed, please try again later.' . mysqli_error($conn);
+    echo 'The Topics could not be displayed, please try again later.' . mysqli_error($conn);
 }
 else
 {
     if(mysqli_num_rows($result) == 0)
     {
-        echo 'This category does not exist.';
+        echo 'This Topics does not exist.';
     }
     else
     {
-        //display category data
+        //display topics data
         while($row = mysqli_fetch_assoc($result))
         {
-            echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
+            echo '<h2>Topics in ′' . $row['topic_subject'] . '′ </h2>';
         }
      
-        // //do a query for the topics
+        // //do a query for the posts
         // $sql = "SELECT  
         //             topic_id,
         //             topic_subject,
@@ -46,19 +46,34 @@ else
         //         WHERE
         //            topic_cat = '2'"; 
         //            //. mysqli_real_escape_string($conn, $_GET['id']);
-        $sql = "select topic_id,topic_subject,topic_date,topic_cat from topics where topic_cat = '1'";
+        $sql = "SELECT
+        posts.post_topic,
+        posts.post_content,
+        posts.post_date,
+        posts.post_by,
+        users.user_id,
+        users.user_name
+    FROM
+        posts
+    LEFT JOIN
+        users
+    ON
+        posts.post_by = users.user_id
+    WHERE
+        posts.post_topic = 4" ;
+        //. mysql_real_escape_string($_GET['id']);
          
         $result = mysqli_query($conn, $sql);
          
         if(!$result)
         {
-            echo 'The topics could not be displayed, please try again later.';
+            echo 'The posts could not be displayed, please try again later.';
         }
         else
         {
             if(mysqli_num_rows($result) == 0)
             {
-                echo 'There are no topics in this category yet.';
+                echo 'There are no posts in this category yet.';
             }
             else
             {
@@ -73,10 +88,10 @@ else
                 {               
                     echo '<tr>';
                         echo '<td class="leftpart">';
-                            echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
+                            echo '<h3><a href="topic.php?id=' . $row['post_by'] . '">' . $row['post_content'] . '</a><h3>';
                         echo '</td>';
                         echo '<td class="rightpart">';
-                            echo date('d-m-Y', strtotime($row['topic_date']));
+                            echo date('d-m-Y', strtotime($row['post_date']));
                         echo '</td>';
                     echo '</tr>';
                 }
