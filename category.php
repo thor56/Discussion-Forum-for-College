@@ -3,6 +3,9 @@
 include 'connect.php';
 include 'header.php';
  
+//displaying particular category based on selection
+
+
 //first select the category based on $_GET['cat_id'] 
 // WHERE
            // cat_id = " . mysqli_real_escape_string($conn, $_GET['id'])
