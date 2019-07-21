@@ -16,7 +16,7 @@ $sql = "SELECT
         FROM
             categories
         where
-            cat_id = 1";   
+        cat_id = " . mysqli_real_escape_string($conn, $_GET['id']);   
  
 $result = mysqli_query($conn, $sql);
  
@@ -38,18 +38,12 @@ else
             echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
         }
      
-        // //do a query for the topics
-        // $sql = "SELECT  
-        //             topic_id,
-        //             topic_subject,
-        //             topic_date,
-        //             topic_cat
-        //         FROM
-        //             topics;
-        //         WHERE
-        //            topic_cat = '2'"; 
-        //            //. mysqli_real_escape_string($conn, $_GET['id']);
-        $sql = "select topic_id,topic_subject,topic_date,topic_cat from topics where topic_cat = '1'";
+                $sql = "select 
+                    topic_id,topic_subject,topic_date,topic_cat 
+                from 
+                    topics 
+                where 
+                    topic_cat =" . mysqli_real_escape_string($conn, $_GET['id']);
          
         $result = mysqli_query($conn, $sql);
          
