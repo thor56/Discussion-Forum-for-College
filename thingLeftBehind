@@ -1,6 +1,6 @@
 create-->topic.php-------
 index.php
-category.php--------line 8---------getting all categories id
+
 topic_view.php------change table format as per sample output in tutorial-------geting all posts from a topic_view
 
 
