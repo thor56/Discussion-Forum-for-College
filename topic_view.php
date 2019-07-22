@@ -12,7 +12,7 @@ topic_subject
 FROM
 topics
 WHERE
-topics.topic_id = 1 ";
+topics.topic_id = ". mysqli_real_escape_string($conn,$_GET['id']);
 // . mysqli_real_escape_string($conn,$_GET['id']);   
  
 $result = mysqli_query($conn, $sql);
@@ -60,8 +60,8 @@ else
     ON
         posts.post_by = users.user_id
     WHERE
-        posts.post_topic = 4" ;
-        //. mysql_real_escape_string($_GET['id']);
+        posts.post_topic = " 
+        . mysqli_real_escape_string($conn,$_GET['id']);
          
         $result = mysqli_query($conn, $sql);
          

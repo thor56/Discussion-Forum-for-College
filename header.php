@@ -39,5 +39,5 @@ echo '<div id="userbar">';
 echo '</div>';
     
    echo  '</div>';
-      echo  '<div id="content">';
+        echo  '<div id="content">';
       
