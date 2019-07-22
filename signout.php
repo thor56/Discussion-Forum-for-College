@@ -4,6 +4,7 @@ include 'connect.php';
 include 'header.php';
 
 
+
 //set the $_SESSION['signed_in'] variable to FALSE
 $_SESSION['signed_in'] = FALSE;
 
@@ -17,6 +18,7 @@ $_SESSION['signed_in'] = FALSE;
 $_SESSION['user_name'] = '';
 $_SESSION['user_level'] = '';
 $_SESSION['user_id'] = '';
+
 
 echo 'Signed out!!'
 

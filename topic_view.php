@@ -35,17 +35,7 @@ else
             echo '<h2>Topics in ′' . $row['topic_subject'] . '′ </h2>';
         }
      
-        // //do a query for the posts
-        // $sql = "SELECT  
-        //             topic_id,
-        //             topic_subject,
-        //             topic_date,
-        //             topic_cat
-        //         FROM
-        //             topics;
-        //         WHERE
-        //            topic_cat = '2'"; 
-        //            //. mysqli_real_escape_string($conn, $_GET['id']);
+
         $sql = "SELECT
         posts.post_topic,
         posts.post_content,

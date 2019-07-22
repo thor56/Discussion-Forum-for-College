@@ -31,10 +31,12 @@ echo '<div id="userbar">';
     if($_SESSION['signed_in'])
     {
         echo 'Hello ' . $_SESSION['user_name'] . '. Not you? <a href="signout.php">Sign out</a>';
+
     }
     else
     {
-        echo '<a href="signin.php">Sign in</a> or <a href="sign up">create an account</a>.';
+        echo '<a href="signin.php">Sign in</a> or <a href="signup.php">create an account</a>.';
+        
     }
 echo '</div>';
     

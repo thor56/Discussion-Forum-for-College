@@ -16,18 +16,18 @@ if (!$conn) {
 }
 
  
-echo '<h3>Sign up</h3>';
+echo '<h3>Sign up</h3> <br>';
  
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
     echo '<form method="post" action="">
-        Username: <input type="text" name="user_name" />
+        Username: <input type="text" name="user_name" /> <br> <br>
         Password: <input type="password" name="user_pass">
-        Password again: <input type="password" name="user_pass_check">
-        E-mail: <input type="email" name="user_email">
-        <input type="submit" value="Add category" />
+        Password again: <input type="password" name="user_pass_check"> <br> <br>
+        E-mail: <input type="email" name="user_email"> <br> <br>
+        <input type="submit" value="Create Account" />
      </form>';
 }
 else
