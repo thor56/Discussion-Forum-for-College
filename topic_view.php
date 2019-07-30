@@ -41,6 +41,7 @@ else
         posts.post_content,
         posts.post_date,
         posts.post_by,
+        posts.post_id,
         users.user_id,
         users.user_name
     FROM
@@ -78,7 +79,7 @@ else
                 {               
                     echo '<tr>';
                         echo '<td class="leftpart">';
-                            echo '<h3><a href="topic.php?id=' . $row['post_by'] . '">' . $row['post_content'] . '</a><h3>';
+                            echo '<h3><a href="topic.php?id=' . $row['post_id'] . '">' . $row['post_content'] . '</a><h3>';
                         echo '</td>';
                         echo '<td class="rightpart">';
                             echo date('d-m-Y', strtotime($row['post_date']));

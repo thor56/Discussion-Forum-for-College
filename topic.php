@@ -4,24 +4,20 @@ include 'connect.php';
 include 'header.php';
 //display selected topic content post
 
-$sql = "SELECT
-posts.post_id,
-posts.post_content,
-posts.post_by,
-posts.post_date,
-topics.topic_subject
+// $sql = "SELECT
+// post_id,
+// post_content,
+// post_by,
+// post_date,
 
-FROM
-posts
-
--- LEFT JOIN
---         topics
---  ON
---         posts.post_topic = topics.topic_id
-WHERE
-posts.post_id = ". mysqli_real_escape_string($conn,$_GET['id'])  ;
+// FROM
+// posts
 
 
+// WHERE
+// post_id = ". mysqli_real_escape_string($conn,$_GET['id'])  ;
+
+$sql = "SELECT * FROM posts WHERE post_id = ". mysqli_real_escape_string($conn, $_GET['id']);
 $result = mysqli_query($conn, $sql);
  
 if(!$result)
@@ -54,7 +50,10 @@ else
 
     //     $sql = "SELECT
     //     posts.post_topic,
-    //     posts.post_content,
+    //     posts.post_content,-- LEFT JOIN
+//         topics
+//  ON
+//         posts.post_topic = topics.topic_id
     //     posts.post_date,
     //     posts.post_by,
     //     users.user_id,
