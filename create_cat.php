@@ -18,12 +18,34 @@ if($_SESSION['user_level'] == 1){
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
-    //the form hasn't been posted yet, display it
-    echo "<form method='post' action=''>
-        Category name: <input type='text' name='cat_name' />
-        Category description: <textarea name='cat_description' /></textarea>
-        <input type='submit' value='Add category' />
-     </form>";
+    
+    echo "
+<div class='container'> 
+    <div class='jumbotron'>
+      <div class='jumbotron-content'>
+        <h1>Create a new Category</h1>
+        <p class='jumbotron-lg-only'>Fill the details</p>
+        <form name='cat_info' method='post' action=''>
+          <div >
+            <label for='cat_name'>Category :</label>
+            <input type='text' name='cat_name' class='form-control' placeholder='Name'>
+          </div>
+          <div >
+            <label for='cat_description'>Category description :</label>
+            <textarea name='cat_description'class='form-control' placeholder='What does this Category describe about' /></textarea>
+          </div>
+          <p></p>
+          <input type='submit' class='btn btn-primary btn-large' value='Add category' />
+          <a href='#' class='pull-right btn btn-default'>Cancel</a>
+        </form>
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+     ";
 }
 else
 {

@@ -35,7 +35,7 @@ else
         //display category data
         while($row = mysqli_fetch_assoc($result))
         {
-            echo '<h2>Topics in ′' . $row['cat_name'] . '′ category</h2>';
+            echo '<h2>Posts in ' . $row['cat_name'] . ' category</h2>';
         }
      
                 $sql = "select 
@@ -60,17 +60,17 @@ else
             else
             {
                 //prepare the table
-                echo '<table border="1">
-                      <tr>
+                echo '<table border="1" class="table">
+                      <thead class="thead-dark">
                         <th>Topic</th>
                         <th>Created at</th>
-                      </tr>'; 
+                      </thead>'; 
                      
                 while($row = mysqli_fetch_assoc($result))
                 {               
                     echo '<tr>';
                         echo '<td class="leftpart">';
-                            echo '<h3><a href="topic_view.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
+                            echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
                         echo '</td>';
                         echo '<td class="rightpart">';
                             echo date('d-m-Y', strtotime($row['topic_date']));

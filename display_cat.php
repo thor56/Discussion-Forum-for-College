@@ -3,6 +3,7 @@
 include 'connect.php';
 
 
+
 //displaying all the categories
 $sql1 = "select cat_id, cat_name, cat_description from categories";
  
@@ -21,11 +22,11 @@ else
     else
     {
         //prepare the table
-        echo '<table border="1">
-              <tr>
+        echo '<table border="1" class="table">
+              <thead class="thead-dark">
                 <th>Category</th>
                 <th>Last topic</th>
-              </tr>'; 
+              </thead>'; 
              
         while($row = mysqli_fetch_assoc($result))
         {               

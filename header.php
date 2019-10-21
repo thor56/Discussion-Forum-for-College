@@ -1,45 +1,75 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="A short description." />
-    <meta name="keywords" content="put, keywords, here" />
-    <title>PHP-MySQL forum</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
-<h1>My forum</h1>
-    <div id="wrapper">
-    <div id="menu">
-        <a class="item" href="/forum/index.php">Home</a> -
-        <a class="item" href="/forum/create_topic.php">Create a topic</a> -
-        <a class="item" href="/forum/create_cat.php">Create a category</a>
-         
-        <div id="userbar">
-        <?php 
-
-//in order to get session vairables associative array
+<?php
+// Start the session
 session_start();
-if(!isset($_SESSION['signed_in']))
-{
-    $_SESSION['signed_in'] = false; 
-}
-        
-echo '<div id="userbar">';
-    if($_SESSION['signed_in'])
-    {
-        echo 'Hello ' . $_SESSION['user_name'] . '. Not you? <a href="signout.php">Sign out</a>';
+?>
 
-    }
-    else
-    {
-        echo '<a href="signin.php">Sign in</a> or <a href="signup.php">create an account</a>.';
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  
+                                    <!--    CONTENT   -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <a class="navbar-brand" href="#">Forum</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/forum/index.php">Home <span class="sr-only">(current)</span></a>
+     
+      </li>  
+      <a class="nav-link" href="/forum/create_topic.php">Create a topic</a>
+      <a class="nav-link" href="/forum/create_cat.php">Create a category</a>
+
+
+    </ul>
+
+ 
+  </div>
+
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
+  <div class="shadow-lg border   rounded">
+  <ul class="navbar-nav mr-auto"  >
+      <?php
+      if(!isset($_SESSION['signed_in']))
+      {
+          $_SESSION['signed_in'] = false; 
         
-    }
-echo '</div>';
-    
-   echo  '</div>';
-        echo  '<div id="content">';
+      }
+
+          if($_SESSION['signed_in'])
+          {
+           echo   '<a class="nav-link" href="signout.php" >Sign out</a>';
+              
       
+          }
+          else
+          {
+              echo '<a class="nav-link" href="signin.php">Sign In</a><a class="nav-link" href="signup.php" >Sign Up</a>';
+              
+          }
+
+      ?>
+      </div>
+      </ul>
+      
+  </div>
+</nav>
+
+
+
+</head>
+  <body >
+    <div class="container"> 
+ 
