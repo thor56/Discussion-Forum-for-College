@@ -3,7 +3,7 @@
 include 'connect.php';
 include 'header.php';
  
-echo '<h2>Create a topic</h2>';
+echo '<p></p>';
 //check if user is logged in
 if($_SESSION['signed_in'] == false)
 {
@@ -48,20 +48,63 @@ else
             else
             {
          
-                echo '<form method="post" action="">
-                    Subject: <input type="text" name="topic_subject" />
-                    Category:'; 
+                // echo '<form method="post" action="">
+                //     Subject: <input type="text" name="topic_subject" />
+                //     Category:'; 
                  
-                echo '<select name="topic_cat">';
+                // echo '<select name="topic_cat">';
+                //     while($row = mysqli_fetch_assoc($result))
+                //     {
+                //         echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
+                //     }
+                // echo '</select>'; 
+                     
+                // echo 'Message: <textarea name="post_content" /></textarea>
+                //     <input type="submit" value="Create topic" />
+                //  </form>';
+
+                echo "
+                
+                <div class='container'> 
+    <div class='jumbotron'>
+      <div class='jumbotron-content '>
+        <h1>Create a new Post</h1>
+        
+        <form name='cat_info' method='post' action=''>
+          <div >
+            <label for='topic_subject'>Post Title</label>
+            <input type='text' name='topic_subject' class='form-control' placeholder='Title'>
+            <p></p>
+          </div>
+            ";
+                echo '<select name="topic_cat" class="form-control">';
                     while($row = mysqli_fetch_assoc($result))
                     {
                         echo '<option value="' . $row['cat_id'] . '">' . $row['cat_name'] . '</option>';
                     }
                 echo '</select>'; 
-                     
-                echo 'Message: <textarea name="post_content" /></textarea>
-                    <input type="submit" value="Create topic" />
-                 </form>';
+
+
+                echo "
+        <div >
+            <label for='post_content'>Post description :</label>
+            <textarea name='post_content'class='form-control' placeholder='Post content' /></textarea>
+          </div>
+          <p></p>
+          <input type='submit' class='btn btn-primary btn-large' value='Post' />
+          <a href='#' class='pull-right btn btn-default'  >Cancel</a>
+        
+        
+          </form>
+      </div>
+      
+    </div>
+    
+  </div>
+                
+
+                
+                ";
             }
         }
     }
@@ -132,7 +175,7 @@ else
                     $result = mysqli_query($conn, $sql);
                      
                     //after a lot of work, the query succeeded!
-                    echo 'You have successfully created <a href="topic.php?id='. $topicid . '">your new topic</a>.';
+                    echo 'You have successfully created your new <a href="topic.php?id='. $topicid . '">Post</a>.';
                 }
             }
         }

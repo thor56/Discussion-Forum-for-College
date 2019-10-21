@@ -1,6 +1,3 @@
 reduce schema
-table formatting
-display posts
-display categories
-
-use accordian for posts
+display posts use accordian for posts
+fix empty posts
