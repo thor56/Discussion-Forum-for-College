@@ -73,7 +73,7 @@ else
         <form name='cat_info' method='post' action=''>
           <div >
             <label for='topic_subject'>Post Title</label>
-            <input type='text' name='topic_subject' class='form-control' placeholder='Title'>
+            <input type='text' name='topic_subject' class='form-control' placeholder='Title' required>
             <p></p>
           </div>
             ";
@@ -88,7 +88,7 @@ else
                 echo "
         <div >
             <label for='post_content'>Post description :</label>
-            <textarea name='post_content'class='form-control' placeholder='Post content' /></textarea>
+            <textarea name='post_content'class='form-control' placeholder='Post content' required/></textarea>
           </div>
           <p></p>
           <input type='submit' class='btn btn-primary btn-large' value='Post' />

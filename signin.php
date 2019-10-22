@@ -31,11 +31,11 @@ else
           note that the action="" will cause the form to post to the same page it is on */
         echo '
         <div class="jumbotron">
-        <h1 class="display-4">SignIn</h1>
+        <h1 class="display-4">Sign In</h1>
         <hr class="my-4 ">
         <form method="post" action="" class="form-inline">
             <div class="form-group mb-2">
-    <label for="user_name" class="sr-only">Email</label>
+    <label for="user_name" class="sr-only">UserName</label>
     <input type="text"  class="form-control shadow rounded" name="user_name" placeholder=" Username">
   </div>
   <div class="form-group mx-sm-3 mb-2">

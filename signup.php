@@ -16,19 +16,40 @@ if (!$conn) {
 }
 
  
-echo '<h3>Sign up</h3> <br>';
+
  
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
-    echo '<form method="post" action="">
-        Username: <input type="text" name="user_name" /> <br> <br>
-        Password: <input type="password" name="user_pass">
-        Password again: <input type="password" name="user_pass_check"> <br> <br>
-        E-mail: <input type="email" name="user_email"> <br> <br>
-        <input type="submit" value="Create Account" />
-     </form>';
+    echo '
+    <div class="jumbotron">
+    <h1 class="display-4">Sign Up</h1>
+    <hr class="my-4 ">
+    <form method="post" action="" class="form-inline">
+        <div class="form-group mb-2 ">
+        <div class="form-group mb-2 col">
+        <label for="user_name" class="sr-only">UserName</label>
+        <input type="text"  class="form-control shadow rounded" name="user_name" placeholder=" Username">
+      </div>
+      
+      <div class="form-group mx-sm-3 mb-2 ">
+        <label for="user_pass" class="sr-only">Password</label>
+       
+        <input type="password" class="form-control shadow rounded" name="user_pass" placeholder="Password">
+      </div>
+      <div class="form-group mx-sm-3 mb-2 ">
+      <label for="user_pass_check" class="sr-only">Password</label>
+      <input type="password" class="form-control shadow rounded" name="user_pass_check" placeholder="Confirm Password">
+    </div>
+        <div class="form-group col">
+        <input type="email" class="form-control shadow rounded" id="user_email" name="user_email" aria-describedby="emailHelp" placeholder="Enter email">
+         </div>
+         <div class="form-group col">
+  <button type="submit" class="btn btn-primary m-3 shadow-lg rounded ">Register</button> </div>
+     </form>
+     </div>
+     ';
 }
 else
 {
