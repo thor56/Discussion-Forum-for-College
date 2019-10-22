@@ -4,18 +4,7 @@ include 'connect.php';
 include 'header.php';
 //display selected topic content post
 
-// $sql = "SELECT
-// post_id,
-// post_content,
-// post_by,
-// post_date,
 
-// FROM
-// posts
-
-
-// WHERE
-// post_id = ". mysqli_real_escape_string($conn,$_GET['id'])  ;
 
 $sql = "SELECT * FROM posts WHERE post_id = ". mysqli_real_escape_string($conn, $_GET['id']);
 $result = mysqli_query($conn, $sql);
@@ -34,74 +23,35 @@ else
     {
         //display post data
         while($row = mysqli_fetch_assoc($result))
-                {               
-                    echo '<tr>';
-                        echo '<td class="leftpart">';
-                            echo '<h1>'.$row['post_id'].'<h1> ';
+                {    
+                    $sql2="SELECT topic_subject FROM topics WHERE topic_id = $row[post_topic]";
+                    $result2 = mysqli_query($conn, $sql2);
+                    $sql3="SELECT user_name FROM users WHERE user_id = $row[post_by]";
+                    $result3 = mysqli_query($conn, $sql3);
+                    while($row2 = mysqli_fetch_assoc($result2)){
+                    $post_title = $row2['topic_subject'];
+                    }
+                    while($row3 = mysqli_fetch_assoc($result3)){
+                        $posted_by = $row3['user_name'];
+                        }
+                        
+
+                    echo '<div class="container bg-custom-new rounded "> <tr>';
+                        echo '<td class="Title">';
+                            echo '<h1 class="display-3">'.$post_title.'</h1> <p class="font-weight-lighter">by ' .$posted_by. ' On '.$row['post_date'].'</p>
+                               <hr class="my-4 ">
+                               ';
                         echo '</td>';
                     echo '</tr>';
                     echo '<tr>';
-                        echo '<td class="rightpart">';
-                            echo '<h3>'.$row['post_content'].'<h3>';
+                        echo '<td class="post_body">';
+                            echo '<h3 class="font-weight-light">'.$row['post_content'].'<h3>';
                         echo '</td>';
                     echo '</tr>';
+                    echo '</div>';
                 }
      
 
-    //     $sql = "SELECT
-    //     posts.post_topic,
-    //     posts.post_content,-- LEFT JOIN
-//         topics
-//  ON
-//         posts.post_topic = topics.topic_id
-    //     posts.post_date,
-    //     posts.post_by,
-    //     users.user_id,
-    //     users.user_name
-    // FROM
-    //     posts
-    // LEFT JOIN
-    //     users
-    // ON
-    //     posts.post_by = users.user_id
-    // WHERE
-    //     posts.post_topic = " 
-    //     . mysqli_real_escape_string($conn,$_GET['id']);
-         
-    //     $result = mysqli_query($conn, $sql);
-         
-        // if(!$result)
-        // {
-        //     echo 'The posts could not be displayed, please try again later.';
-        // }
-        // else
-        // {
-        //     if(mysqli_num_rows($result) == 0)
-        //     {
-        //         echo 'There are no posts in this category yet.';
-        //     }
-        //     else
-        //     {
-        //         //prepare the table
-        //         echo '<table border="1">
-        //               <tr>
-        //                 <th>Topic</th>
-        //                 <th>Created at</th>
-        //               </tr>'; 
-                     
-        //         while($row = mysqli_fetch_assoc($result))
-        //         {               
-        //             echo '<tr>';
-        //                 echo '<td class="leftpart">';
-        //                     echo '<h3><a href="topic.php?id=' . $row['post_by'] . '">' . $row['post_content'] . '</a><h3>';
-        //                 echo '</td>';
-        //                 echo '<td class="rightpart">';
-        //                     echo date('d-m-Y', strtotime($row['post_date']));
-        //                 echo '</td>';
-        //             echo '</tr>';
-        //         }
-        //     }
-        // }
     }
 }
 
