@@ -3,10 +3,12 @@
     <input type="submit" value="Submit reply" />
 </form>
 <?php
-//reply.php
+
+//  // Start the session
+// session_start();
 include 'connect.php';
-include 'header.php';
- 
+
+
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //someone is calling the file directly, which we don't want
@@ -22,15 +24,21 @@ else
     else
     {
         //a real user posted a real reply
-        $sql = "INSERT INTO 
-                    posts(post_content,
-                          post_date,
-                          post_topic,
-                          post_by) 
+        // $sql = "INSERT INTO 
+        //             posts(post_content,
+        //                   post_date,
+        //                   post_topic,
+        //                   post_by) 
+        //         VALUES ('" . $_POST['reply-content'] . "',
+        //                 NOW(),
+        //                 " . mysqli_real_escape_string($conn,$_GET['id']) . ",
+        //                 " . $_SESSION['user_id'] . ")";
+                        $sql = "INSERT INTO 
+                    reply(reply,reply_to,reply_by) 
                 VALUES ('" . $_POST['reply-content'] . "',
-                        NOW(),
                         " . mysqli_real_escape_string($conn,$_GET['id']) . ",
                         " . $_SESSION['user_id'] . ")";
+                         
                          
         $result = mysqli_query($conn,$sql);
                          
@@ -45,5 +53,5 @@ else
     }
 }
  
-include 'footer.php';
+
 ?>

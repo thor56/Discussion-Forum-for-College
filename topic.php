@@ -56,6 +56,6 @@ else
 }
 
 
-
+include 'reply.php';
 include 'footer.php';
 ?>
