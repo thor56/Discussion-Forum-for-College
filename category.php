@@ -62,8 +62,8 @@ else
                 //prepare the table
                 echo '<table border="1" class="table">
                       <thead class="thead-dark">
-                        <th>Topic</th>
-                        <th>Created at</th>
+                        <th>Posts</th>
+                       
                       </thead>'; 
                      
                 while($row = mysqli_fetch_assoc($result))
@@ -72,9 +72,7 @@ else
                         echo '<td class="leftpart">';
                             echo '<h3><a href="topic.php?id=' . $row['topic_id'] . '">' . $row['topic_subject'] . '</a><h3>';
                         echo '</td>';
-                        echo '<td class="rightpart">';
-                            echo date('d-m-Y', strtotime($row['topic_date']));
-                        echo '</td>';
+                      
                     echo '</tr>';
                 }
             }
