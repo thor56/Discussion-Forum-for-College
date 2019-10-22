@@ -25,7 +25,7 @@ else
         echo '<table border="1" class="table">
               <thead class="thead-dark">
                 <th>Category</th>
-                <th>Last topic</th>
+              
               </thead>'; 
              
         while($row = mysqli_fetch_assoc($result))
@@ -36,9 +36,9 @@ else
                       echo '<h3><a href="category.php?id='.$row['cat_id'].'">' . $row['cat_name'] . '</a></h3>' . $row['cat_description'];
 
                     echo '</td>';
-                echo '<td class="rightpart">';
-                            echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
-                echo '</td>';
+                // echo '<td class="rightpart">';
+                //             echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
+                // echo '</td>';
             echo '</tr>';
         }
     }

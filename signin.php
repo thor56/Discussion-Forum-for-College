@@ -16,7 +16,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
  
-echo '<h3>Sign in</h3>';
+// echo '<h3 >Sign in</h3>';
  
 //first, check if the user is already signed in. If that is the case, there is no need to display this page
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
@@ -29,11 +29,24 @@ else
     {
         /*the form hasn't been posted yet, display it
           note that the action="" will cause the form to post to the same page it is on */
-        echo '<form method="post" action="">
-            Username: <input type="text" name="user_name" />
-            Password: <input type="password" name="user_pass">
-            <input type="submit" value="Sign in" />
-         </form>';
+        echo '
+        <div class="jumbotron">
+        <h1 class="display-4">SignIn</h1>
+        <hr class="my-4 ">
+        <form method="post" action="" class="form-inline">
+            <div class="form-group mb-2">
+    <label for="user_name" class="sr-only">Email</label>
+    <input type="text"  class="form-control shadow rounded" name="user_name" placeholder=" Username">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="user_pass" class="sr-only">Password</label>
+    <input type="password" class="form-control shadow rounded" name="user_pass" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2 shadow-lg rounded ">Sign in</button>
+         </form>
+         </div>
+         
+         ';
     }
     else
     {
