@@ -28,8 +28,9 @@ else
                     $result2 = mysqli_query($conn, $sql2);
                     $sql3="SELECT user_name FROM users WHERE user_id = $row[post_by]";
                     $result3 = mysqli_query($conn, $sql3);
-                    $sql4="SELECT reply FROM reply WHERE reply_to = $row[post_topic]";
+                    $sql4="SELECT reply,reply_by FROM reply WHERE reply_to = $row[post_topic]";
                     $result4 = mysqli_query($conn, $sql4);
+           
                     while($row2 = mysqli_fetch_assoc($result2)){
                     $post_title = $row2['topic_subject'];
                     }
@@ -38,7 +39,7 @@ else
                         }
                         
                         
-
+//post body
                     echo '<div class="container bg-custom-new rounded "> ';
                         echo '<tr><td class="Title">';
                             echo '<h1 class="display-3">'.$post_title.'</h1> <p class="font-weight-lighter">by ' .$posted_by. ' On '.$row['post_date'].'</p>
@@ -51,24 +52,35 @@ else
                             echo '<h3 class="font-weight-light">'.$row['post_content'].'<h3> <hr class="my-4   ">';
                         echo '</td>';
                     echo '</tr>';
-//reply content
-                        
-                        echo '<tr><td class="Title">';
-                        echo '<h1 class="display-3 ">-- Replies --</h1> 
-                        <hr class="my-4 ">
-                        ';
-                        echo '</td>';
-                        echo '</tr>';
-
-                        echo '<tr>';
-                        echo '<td class="replies_body">';
-                        while($row4 = mysqli_fetch_assoc($result4)){
-                            echo '<h3 class="font-weight-light">'.$row4['reply'].'<h3><hr class="my-2 ">';
-                            }
-                        echo '</td>';
-                        echo '</tr>';
 
                     echo '</div>';
+ //reply body
+                    echo '<div class="container bg-white rounded "> ';
+                    echo '<tr><td class="Title">';
+                    echo '<h1 class="display-4 ">  Replies</h1> 
+                    <hr class="my-4 ">
+                    ';
+                    echo '</td>';
+                    echo '</tr>';
+
+                    echo '<tr>';
+                    echo '<td class="replies_body">';
+                    while($row4 = mysqli_fetch_assoc($result4)){
+                        $sql5='SELECT user_name FROM users WHERE user_id ='  . $row4["reply_by"];
+                        $result5 = mysqli_query($conn, $sql5);
+
+                        while($row5 = mysqli_fetch_assoc($result5)){
+                            echo '<div class="container bg-custom-new rounded">';
+                        echo '<h6 class="font-weight-lighter">' .$row5['user_name'].' says :  </h6>';
+                        echo '<h3 class="font-weight-light">'.$row4['reply'].'<h3><br></div>';
+                        }
+                    }
+                    echo '</td>';
+                    echo '</tr><br>';
+
+                    echo '</div>';
+
+
                 }
      
 
