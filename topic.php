@@ -56,28 +56,13 @@ else
 
                     echo '</div>';
  //reply body
-                    echo '<div class="container bg-white rounded "> ';
-                    echo '<tr><td class="Title">';
-                    echo '<h1 class="display-4 ">  Replies</h1> 
-                    <hr class="my-4 ">
-                    ';
-                    echo '</td>';
-                    echo '</tr>';
-
-                    echo '<tr>';
-                    echo '<td class="replies_body">';
-                    while($row4 = mysqli_fetch_assoc($result4)){
-                        $sql5='SELECT user_name FROM users WHERE user_id ='  . $row4["reply_by"];
-                        $result5 = mysqli_query($conn, $sql5);
-
-                        while($row5 = mysqli_fetch_assoc($result5)){
-                            echo '<div class="container bg-custom-new rounded shadow m-3">';
-                        echo '<h6 class="font-weight-lighter">' .$row5['user_name'].' says :  </h6>';
-                        echo '<h3 class="font-weight-light">'.$row4['reply'].'<h3><br></div>';
-                        }
-                    }
-                    echo '</td>';
-                    echo '</tr><br>';
+ echo '<tr>';
+ echo '<td class="replies_body">';
+ while($row4 = mysqli_fetch_assoc($result4)){
+     echo '<h3 class="font-weight-light">'.$row4['reply'].'<h3><hr class="my-2 ">';
+     }
+ echo '</td>';
+ echo '</tr>';
 
                     echo '</div>';
 
