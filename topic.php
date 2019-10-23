@@ -40,7 +40,7 @@ else
                         
                         
 //post body
-                    echo '<div class="container bg-custom-new rounded "> ';
+                    echo '<div class="container bg-custom-new rounded shadow"> ';
                         echo '<tr><td class="Title">';
                             echo '<h1 class="display-3">'.$post_title.'</h1> <p class="font-weight-lighter">by ' .$posted_by. ' On '.$row['post_date'].'</p>
                                <hr class="my-4 ">
@@ -49,7 +49,7 @@ else
                     echo '</tr>';
                     echo '<tr>';
                         echo '<td class="post_body">';
-                            echo '<h3 class="font-weight-light">'.$row['post_content'].'<h3> <hr class="my-4   ">';
+                            echo '<h3 class="font-weight-light ">'.$row['post_content'].'<h3> <br>';
                         echo '</td>';
                     echo '</tr>';
 
@@ -70,7 +70,7 @@ else
                         $result5 = mysqli_query($conn, $sql5);
 
                         while($row5 = mysqli_fetch_assoc($result5)){
-                            echo '<div class="container bg-custom-new rounded">';
+                            echo '<div class="container bg-custom-new rounded shadow m-3">';
                         echo '<h6 class="font-weight-lighter">' .$row5['user_name'].' says :  </h6>';
                         echo '<h3 class="font-weight-light">'.$row4['reply'].'<h3><br></div>';
                         }
