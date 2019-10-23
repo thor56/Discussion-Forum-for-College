@@ -12,7 +12,7 @@ include 'connect.php';
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //someone is calling the file directly, which we don't want
-    // echo 'This file cannot be called directly.';
+    echo 'This file cannot be called directly.';
 }
 else
 {
@@ -48,8 +48,7 @@ else
         }
         else
         {
-            Header("Location: topic.php?id=".$_GET['id']);
-           
+            echo 'Your reply has been saved, check out <a href="topic.php?id=' . htmlentities($_GET['id']) . '">the topic</a>.';
         }
     }
 }
