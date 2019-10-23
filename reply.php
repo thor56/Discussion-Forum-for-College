@@ -1,5 +1,5 @@
 <form method="post" action="reply.php?id=5">
-    <textarea name="reply-content" required></textarea>
+    <textarea name="reply-content"></textarea>
     <input type="submit" value="Submit reply" />
 </form>
 <?php
@@ -19,7 +19,7 @@ else
     //check for sign in status
     if(!$_SESSION['signed_in'])
     {
-        // echo 'You must be signed in to post a reply.';
+        echo 'You must be signed in to post a reply.';
     }
     else
     {
