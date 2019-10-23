@@ -1,7 +1,14 @@
+<div class="container bg-dark rounded shadow p-2"> 
 <form method="post" action="reply.php?id=5">
-    <textarea name="reply-content" required></textarea>
-    <input type="submit" value="Submit reply" />
+    
+    <div class="form-group">
+    <textarea name="reply-content" class="form-control input-lg" rows="7" required></textarea>
+    
+  
+  </div>
+  <button type="submit" class="btn btn-success " style="width:100px;">Reply</button>
 </form>
+</div>
 <?php
 
  // Start the session
@@ -19,20 +26,11 @@ else
     //check for sign in status
     if(!$_SESSION['signed_in'])
     {
-        // echo 'You must be signed in to post a reply.';
+        echo 'You must be signed in to post a reply.';
     }
     else
     {
-        //a real user posted a real reply
-        // $sql = "INSERT INTO 
-        //             posts(post_content,
-        //                   post_date,
-        //                   post_topic,
-        //                   post_by) 
-        //         VALUES ('" . $_POST['reply-content'] . "',
-        //                 NOW(),
-        //                 " . mysqli_real_escape_string($conn,$_GET['id']) . ",
-        //                 " . $_SESSION['user_id'] . ")";
+     
                         $sql = "INSERT INTO 
                     reply(reply,reply_to,reply_by) 
                 VALUES ('" . $_POST['reply-content'] . "',
