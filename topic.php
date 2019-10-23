@@ -56,13 +56,15 @@ else
 
                     echo '</div>';
  //reply body
- echo '<tr>';
- echo '<td class="replies_body">';
- while($row4 = mysqli_fetch_assoc($result4)){
-     echo '<h3 class="font-weight-light">'.$row4['reply'].'<h3><hr class="my-2 ">';
-     }
- echo '</td>';
- echo '</tr>';
+                        
+                    echo '<tr>';
+                    echo '<td class="replies_body">';
+                    while($row4 = mysqli_fetch_assoc($result4)){
+                        echo '<div class="container bg-custom-new rounded shadow m-3 p-3">
+                        <h3 class="font-weight-light">'.$row4['reply'].'<h3></div>';
+                        }
+                    echo '</td>';
+                    echo '</tr>';
 
                     echo '</div>';
 
