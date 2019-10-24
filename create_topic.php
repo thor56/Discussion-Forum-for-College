@@ -8,7 +8,7 @@ echo '<p></p>';
 if($_SESSION['signed_in'] == false)
 {
     //ask the user to sign-in
-    echo 'Please Login to use this feature, ' . '<a href="signin.php">Sign in</a>'; 
+    echo 'Please Login to use start a Discussion, ' . '<a href="signin.php">Sign in</a>'; 
 }
 else
 {

@@ -67,10 +67,15 @@ else
             echo '</tr>';
                     echo '<td class="replies_body">';
                     while($row4 = mysqli_fetch_assoc($result4)){
+                        $sql5="SELECT user_name FROM users WHERE user_id =". $row4['reply_by'];
+                    $result5 = mysqli_query($conn, $sql5);
+                    while($row5 = mysqli_fetch_assoc($result5)){
+                        $repliedby = $row5['user_name'];
                         echo '<div class="container bg-custom-new rounded shadow m-3 p-3">
-                        <p><h6>Rajesh says:</h6></p>
+                        <p><h6>'.$repliedby.' says:</h6></p>
                         <h3 class="font-weight-light">'.$row4['reply'].'<h3></div>';
-                        }
+                    }    
+                    }
                     echo '</td>';
                     echo '</tr></div>';
 

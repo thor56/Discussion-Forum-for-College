@@ -7,7 +7,7 @@ include 'header.php';
 if($_SESSION['signed_in'] == false)
 {
     //ask the user to sign-in
-    echo 'Please Login to use this feature, ' . '<a href="signin.php">Sign in</a>'; 
+    echo 'Please Login to create a Category, ' . '<a href="signin.php">Sign in</a>'; 
 }
 
 else {

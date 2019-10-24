@@ -117,7 +117,10 @@ else
         if(!$result)
         {
             //something went wrong, display the error
-            echo 'Something went wrong while registering. Please try again later.';
+           // echo 'Something went wrong while registering. Please try again later.';
+      echo '      <script type="text/javascript">
+            alert("Something went wrong while registering. Please try again later.");
+            </script>';
             //echo mysql_error(); //debugging purposes, uncomment when needed
         }
         else
