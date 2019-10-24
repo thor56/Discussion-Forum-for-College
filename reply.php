@@ -1,6 +1,6 @@
-<!-- 
-<div class="container bg-dark rounded shadow p-2"> 
 
+<div class="container bg-dark rounded shadow p-2"> 
+<form method="post" action="">
     
     <div class="form-group">
     <textarea name="reply-content" class="form-control input-lg" rows="7" required></textarea>
@@ -8,13 +8,13 @@
   
   </div>
   <button type="submit" class="btn btn-success " style="width:100px;">Reply</button>
-
-</div> -->
-<form method="post" action="">
+  </form>
+</div>
+<!-- <form method="post" action="">
    
     <textarea name="reply-content" required></textarea>
     <input type="submit" value="Submit reply" />
-</form>
+</form> -->
 <?php
 
 
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 }
 else
 {
-    echo "sql " . $_GET['id'];
+   
     
     //check for sign in status
     if(!$_SESSION['signed_in'])

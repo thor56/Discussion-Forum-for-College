@@ -57,14 +57,22 @@ else
                     echo '</div>';
  //reply body
                         
-                    echo '<tr>';
+                    echo '<div class="container rounded ">
+                    <tr>';
+                    echo '<tr><td class="Title">';
+                    echo '<h1 class="display-3"> Replies </h1>
+                       <hr class="my-4 ">
+                       ';
+                echo '</td>';
+            echo '</tr>';
                     echo '<td class="replies_body">';
                     while($row4 = mysqli_fetch_assoc($result4)){
                         echo '<div class="container bg-custom-new rounded shadow m-3 p-3">
+                        <p><h6>Rajesh says:</h6></p>
                         <h3 class="font-weight-light">'.$row4['reply'].'<h3></div>';
                         }
                     echo '</td>';
-                    echo '</tr>';
+                    echo '</tr></div>';
 
                     echo '</div>';
 

@@ -20,6 +20,6 @@ $_SESSION['user_level'] = '';
 $_SESSION['user_id'] = '';
 
 
-echo 'Signed out!!'
+Header("Location: index.php");
 
 ?>
