@@ -3,10 +3,10 @@
 include 'connect.php';
 include 'header.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "theforum";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "theforum";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
